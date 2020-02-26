@@ -23,6 +23,25 @@ var searchInsert = function(nums, target) {
     }
 };
 
+// 进行优化（if···else)
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var searchInsert = function(nums, target) {
+    let i;
+    for(i=0;i<nums.length;i++){
+        if(target > nums[nums.length - 1]){
+            return nums.length;
+        }else{
+            if(target <= nums[i]){
+                return i;
+            }
+        }
+    }
+};
+
 // 对下面的解法进行更改，是因为indexof会再次遍历数组，时间复杂度O(2N)，这个最坏O（N）
 
 // var searchInsert = function(nums, target) {
