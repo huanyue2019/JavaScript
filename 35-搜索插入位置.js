@@ -7,17 +7,36 @@
  * @return {number}
  */
 var searchInsert = function(nums, target) {
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[i] !== target) {
+    let i;
+    for(i=0;i<nums.length;i++){
+        if(nums[i] !== target){
             if(target > nums[nums.length - 1]){
                 return nums.length;
             }else{
-               if (target < nums[i]) {
+                if(target < nums[i]){
                     return i;
-                } 
+                }
             }
         }else{
-            return nums.indexOf(target);
+            return i;
         }
     }
 };
+
+// 对下面的解法进行更改，是因为indexof会再次遍历数组，时间复杂度O(2N)，这个最坏O（N）
+
+// var searchInsert = function(nums, target) {
+//     for (let i = 0; i < nums.length; i++) {
+//         if (nums[i] !== target) {
+//             if(target > nums[nums.length - 1]){
+//                 return nums.length;
+//             }else{
+//                if (target < nums[i]) {
+//                     return i;
+//                 } 
+//             }
+//         }else{
+//             return nums.indexOf(target);
+//         }
+//     }
+// };
