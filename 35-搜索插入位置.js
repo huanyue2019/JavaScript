@@ -18,7 +18,6 @@ var searchInsert = function(nums, target) {
             }
         }else{
             return nums.indexOf(target);
-            break;
         }
     }
 };
