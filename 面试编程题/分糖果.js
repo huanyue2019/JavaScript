@@ -12,13 +12,34 @@
 // 返回一个长度为 num_people、元素之和为 candies 的数组，以表示糖果的最终分发情况（即 ans[i] 表示第 i 个小朋友分到的糖果数）。
 
 
-var distributeCandies = function(candies, num_people) {
+var distributeCandies = function (candies, num_people) {
     let res = new Array(num_people).fill(0)
     let i = 0
-    while(candies !=0){
-        res[i%num_people]+= Math.min(i+1,candies)
-        candies -= Math.min(i+1, candies)
+    while (candies != 0) {
+        res[i % num_people] += Math.min(i + 1, candies)
+        candies -= Math.min(i + 1, candies)
         i++
     }
     return res
 }
+
+var distributeCandies = function (candies, num_people) {
+    let result = new Array(num_people).fill(0);
+    let surplus = candies;
+    let j = 0;
+    for (let i = 1; i < candies; i++) {
+        if (surplus > i) {
+            result[j] = result[j] + i;
+            surplus = surplus - i;
+            j++;
+            if (j === num_people) {
+                j = 0;
+            }
+        } else {
+            result[j] = result[j] + surplus;
+            break;
+        }
+    }
+    return result;
+};
+// fill()方法将数组中的所有元素更改为静态值，从开始索引（默认为0 ）到结束索引（默认为array.length ）. 它返回修改后的数组.
