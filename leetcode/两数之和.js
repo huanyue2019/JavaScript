@@ -13,8 +13,8 @@
 var twoSum = function(nums, target) {
     const map = new Map()
     for (let i = 0; i < nums.length; i ++) {
-      const otherIndex = map.get(target - nums[i]) // 把target当成map的一个键，使用get方法读取这个值。如果找不到键值，返回undefined。
-      if (otherIndex !== undefined) return [otherIndex, i]
+      const otherIndex = map.get(target - nums[i]); // 把target当成map的一个键，使用get方法读取这个值。如果找不到键值，返回undefined。
+      if (otherIndex !== undefined) return [otherIndex, i];
       map.set(nums[i], i); // 返回当前map对象。
     }
   };
@@ -23,7 +23,7 @@ var twoSum = function(nums, target) {
 
 
 // 1.使用一层循环，每遍历到一个元素就计算该元素与 targettarget 之间的差值 dif，然后以 dif 为下标到数组temp中寻找，
-// 如果 temp[dif] 有值(即不是 undefinedundefined)，则返回两个元素在数组 numsnums 的下标，如果没有找到，
+// 如果 temp[dif] 有值(即不是 undefined)，则返回两个元素在数组 numsnums 的下标，如果没有找到，
 // 则将当前元素存入数组 temptemp 中(下标: nums[i], Value: inums[i],Value:i) 。
 // 2.时间复杂度：O(n)
 /**

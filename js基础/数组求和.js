@@ -29,6 +29,19 @@ function sum(arr) {
   });
 }
 
+/**
+* @method reduce
+* @param {number}   accumulator  每次迭代累加的值
+* @param {number}   currentValue  当前迭代的数组元素
+* @param {number}   currentIndex  当前元素的下标
+* @param {array}    array  原数组
+*/
+let arr = [1,2,6,3,4,5];
+let res = arr.reduce(function(accumulator,currentValue,currentIndex,array){
+ return accumulator+currentValue;
+});
+console.log(res);
+
 // 方法四： eval
 // eval()函数可计算某个字符串，并执行其中的javascript代码。
 
